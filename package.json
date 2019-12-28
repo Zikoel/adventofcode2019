@@ -1,0 +1,17 @@
+{
+  "name": "advent2019",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "03-1": "cd 03 && node ./first2.js",
+    "03-2": "cd 03 && node ./secondEntryPoint.js",
+    "test03": "jest ./03/**/*.spec.js"
+  },
+  "author": "Elia Mazzuoli",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^24.9.0",
+    "lodash": "^4.17.15"
+  }
+}
