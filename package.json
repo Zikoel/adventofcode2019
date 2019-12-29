@@ -6,7 +6,9 @@
   "scripts": {
     "03-1": "cd 03 && node ./first2.js",
     "03-2": "cd 03 && node ./secondEntryPoint.js",
-    "test03": "jest ./03/**/*.spec.js"
+    "04-1": "cd 04 && node ./firstEntryPoint.js",
+    "test03": "jest ./03/**/*.spec.js",
+    "test04": "jest ./04/*.spec.js"
   },
   "author": "Elia Mazzuoli",
   "license": "ISC",
