@@ -72,9 +72,57 @@ const executeProgram = (ip, memory, inputs, outputs) => {
     case 4:
       {
         const parameter1 = memory[ip + 1]
-        const value = memory[parameter1]
+        const value1 = modeOf1stParameter === 1 ? parameter1 : memory[parameter1]
         const newIp = ip + 2
-        return executeProgram(newIp, memory, inputs, [...outputs, value])
+        return executeProgram(newIp, memory, inputs, [...outputs, value1])
+      }
+    case 5:
+      {
+        const parameter1 = memory[ip + 1]
+        const parameter2 = memory[ip + 2]
+        const value1 = modeOf1stParameter === 1 ? parameter1 : memory[parameter1]
+        const value2 = modeOf2stParameter === 1 ? parameter2 : memory[parameter2]
+        const newIp = value1 !== 0
+          ? value2
+          : ip + 3
+        return executeProgram(newIp, memory, inputs, outputs)
+      }
+    case 6:
+      {
+        const parameter1 = memory[ip + 1]
+        const parameter2 = memory[ip + 2]
+        const value1 = modeOf1stParameter === 1 ? parameter1 : memory[parameter1]
+        const value2 = modeOf2stParameter === 1 ? parameter2 : memory[parameter2]
+        const newIp = value1 === 0
+          ? value2
+          : ip + 3
+        return executeProgram(newIp, memory, inputs, outputs)
+      }
+    case 7:
+      {
+        const parameter1 = memory[ip + 1]
+        const parameter2 = memory[ip + 2]
+        const parameter3 = memory[ip + 3]
+        const value1 = modeOf1stParameter === 1 ? parameter1 : memory[parameter1]
+        const value2 = modeOf2stParameter === 1 ? parameter2 : memory[parameter2]
+        const updatedMemory = value1 < value2
+          ? setAt(memory, parameter3, 1)
+          : setAt(memory, parameter3, 0)
+        const newIp = ip + 4
+        return executeProgram(newIp, updatedMemory, inputs, outputs)
+      }
+    case 8:
+      {
+        const parameter1 = memory[ip + 1]
+        const parameter2 = memory[ip + 2]
+        const parameter3 = memory[ip + 3]
+        const value1 = modeOf1stParameter === 1 ? parameter1 : memory[parameter1]
+        const value2 = modeOf2stParameter === 1 ? parameter2 : memory[parameter2]
+        const updatedMemory = value1 === value2
+          ? setAt(memory, parameter3, 1)
+          : setAt(memory, parameter3, 0)
+        const newIp = ip + 4
+        return executeProgram(newIp, updatedMemory, inputs, outputs)
       }
     case 99:
       return {memory, outputs}

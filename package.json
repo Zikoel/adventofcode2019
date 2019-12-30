@@ -9,6 +9,7 @@
     "04-1": "cd 04 && node ./firstEntryPoint.js",
     "04-2": "cd 04 && node ./secondEntryPoint.js",
     "05-1": "cd 05 && node ./firstEntryPoint.js",
+    "05-2": "cd 05 && node ./secondEntryPoint.js",
     "test03": "jest ./03/**/*.spec.js",
     "test04": "jest ./04/*.spec.js",
     "test05": "jest ./05/*.spec.js"
